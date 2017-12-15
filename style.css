@@ -1,0 +1,346 @@
+.section-title{
+color: blue;
+}
+
+
+
+
+
+
+
+#blink1 {
+  
+  animation: blink1 3s linear infinite;
+}
+
+@keyframes blink1 {
+  10% { color: rgba(0, 0, 255, 1); }
+  25% { color: rgba(34, 34, 34, 0); }
+  40% {color: rgba(255, 0, 0, 1);}
+   55%{ color: rgba(34, 34, 34, 0); }
+70%{ color: rgba(0, 128, 0, 1); }
+85%{color: rgba(34, 34, 34, 0); }
+  100%{color: rgba(255, 255, 0, 1); }
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a { 
+color: #000; 
+transition-property: color; 
+transition-duration: 0.7s; 
+transition-delay:  0.3s; 
+transition-timing-function: ease-in; 
+
+
+} 
+
+a:hover { 
+color: #fff; 
+} 
+/* Анимация от 0% до 100% */ 
+
+@keyframes move { 
+0% { transform: translateX(0); } 
+100% { transform: translateX(100px); } 
+
+} 
+
+/* Анимация с промежуточным кадром */ 
+
+@keyframes move { 
+0% { transform: translateX(0); } 
+50% { transform: translateX(20px); } 
+100% { transform: translateX(100px); } 
+} 
+/* Структура слайдера */ 
+
+#slider { 
+z-index:2;
+left: 0px;
+background: #000; 
+border: 10px solid #FFFF00; 
+box-shadow: 1px 1px 5px rgba(0,0,0,0.7); 
+height: 276px; 
+width: 768px;  
+margin: 70px auto 0; 
+overflow:visible;
+position: relative; 
+
+} 
+/* Прячем все за пределами слайдера */ 
+
+#mask { 
+overflow: hidden; 
+height: 20px; 
+} 
+* Список изображений */ 
+
+#slider ul { 
+margin: 0; 
+padding: 0; 
+position: relative; 
+} 
+
+#slider li { 
+width:300px; /* Ширина изображения */ 
+height: 400px; /* Высота изображения */ 
+position: absolute; 
+top: 0px; /* Исходное положение (за пределами слайдера) */ 
+list-style: none; 
+} 
+#slider li.firstanimation { 
+animation: cycle 50s linear infinite; 
+} 
+
+#slider li.secondanimation { 
+animation: cycletwo 50s linear infinite; 
+} 
+
+#slider li.thirdanimation { 
+animation: cyclethree 50s linear infinite; 
+} 
+
+
+@keyframes cycle { 
+0% { left: 0px; } /* При запуске слайдера, первое изображение уже видимо */ 
+4% { left: 0px;} /* Стартовая позиция */ 
+16% { left: 0px; opacity:1; z-index:0; } /* С 4% до 16 % (3 секунды) изображение видимо */ 
+20% { left: 325px; opacity: 0; z-index: 0; clip-path: polygon(0px 0px,0px 0px,0px 0px,0px 0px);} /* с 16% до 20% (1 секунды)выход изображения*/ 
+21% { left: -325px; opacity: 0; z-index: -1;} /* Возвращение на исходную позицию за пределами маски */ 
+92% { left: -325px; opacity: 0; z-index:0;} 
+96% { left: -325px; opacity: 0;} /* С 96% до 100% (1 секунда) – вход */ 
+100%{ left: 0px; opacity: 1;  clip-path: polygon(0px 0px,0px 0px,0px 0px,0px 0px);} 
+} 
+
+@keyframes cycletwo { 
+0% { left: 0px; opacity: 0; } /* Исходная позиция за пределами маски */ 
+16% { left: 0px; opacity: 0; }/* Начало движения с 16% */ 
+20% { left: 0px; opacity: 1; } 
+24% { left: 0px; opacity:  1;  } /* С 20% до 24% (в течении 1 секунды) — вход*/ 
+36% { left: 0px; opacity: 1; z-index: 0; } /* С 24% до 36 % (3 секунды) изображение видимо */ 
+40% { left: 325px; opacity: 0; z-index: 0; } /* С 36% до 40% (1 секунда)— выход */ 
+61% { left: -325px; opacity: 0;  clip-path: polygon(0px 0px,0px 0px,0px 0px,0px 0px);} /* Возврат на исходную позицию */ 
+100%{ left: -325px; opacity: 0; z-index: -1;} 
+
+} 
+
+@keyframes cyclethree { 
+0% { left: 0px; opacity: 0;  } 
+36% { left: 0px; opacity: 0; } 
+40% { left: 0px; opacity: 1;} 
+44% { left: 0px; opacity: 1; z-index: 0; } 
+56% { left: 0px; opacity: 1; z-index: 0; } 
+60% { left: 325px; opacity: 0; z-index: 0; } 
+61% { left: -325px; opacity: 0; z-index: -1; } 
+100%{ left: -325px; opacity: 0; z-index: -1; clip-path: polygon(0px 0px,0px 0px,0px 0px,0px 0px);} 
+} 
+
+
+* Индикатор выполнения */ 
+
+.progress-bar { 
+position: relative; 
+top: -5px; 
+width: 680px; 
+height: 5px; 
+background: #000; 
+animation: fullexpand 25s ease-out infinite; 
+} 
+
+.product-wrapper { 
+display: block; 
+width: 100%; 
+float: left; 
+transition: width .2s; 
+} 
+@media only screen and (min-width: 450px) { 
+.product-wrapper { 
+width: 50%; 
+} 
+} 
+
+@media only screen and (min-width: 768px) { 
+.product-wrapper { 
+width: 33.333%; 
+} 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#navigation
+{
+ z-index:2;
+list-style: none;
+position: fixed;
+color: blue;
+font-family: Franklin Gothic Medium;
+font-size:14px;
+width: 100%;
+left: 238px;
+top:6px;
+font: center
+
+}
+#navigation li
+{ 
+   float:left;
+position:relative;
+display:block;
+
+}
+#navigation li a
+{
+text-decoration:none;	
+color: blue;
+font-family: Franklin Gothic Medium;
+font-size:14px;
+padding: 25px 56.5px 25px;
+background: #FF0000;
+
+
+
+}
+#navigation li a:hover 
+{
+
+padding: 10px;
+
+
+
+}
+#navigation ul
+{
+position:absolute;
+top: -9999px;
+list-style: none;
+padding:0px ;
+margin:0px;
+
+}
+
+
+#navigation ul a
+{
+white-space: nowrap;
+display:block;
+
+}
+
+#navigation li:hover ul
+{
+
+top: 40px;
+position:absolute;
+padding:0px 
+
+}
+
+#navigation li:hover a
+{
+	
+background: #00FF00;
+color: yellow;
+
+padding:12.6px 55.5px 12.6px;
+
+width: 40px;
+border:1px solid #0000FF;
+  text-align: center;
+
+}
+
+
+
+
+
+
+
+
+
+ 
+i{
+    position:absolute;
+    top:-150px;
+}
+ 
+div.content p{
+    margin-bottom:10px;
+    position:relative;
+}
+
+
+
+
+
+
+
+
+@-webkit-keyframes blink6 {
+ 10% { transform: scale(1, 1) rotate(80deg); }
+ 20% { transform: scale(0, 0) rotate(160deg); }
+ 100% { transform: scale(0, 0) rotate(0deg); }
+}
+@keyframes blink6 {
+ 10% { transform: scale(1, 1) rotate(80deg); }
+ 20% { transform: scale(0, 0) rotate(160deg); }
+ 100% { transform: scale(0, 0) rotate(0deg); }
+}
+#blink6 {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  text-shadow: 0 0 10px #3d7a97;
+  background: black;
+}
+#blink6:after, #blink6:before {
+  content: "";
+  position: absolute; top: 0; left: 0;
+  display: block;
+  width: 100px;
+  height: 150px;
+  background-image: 
+    radial-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 30%),
+    linear-gradient(45deg, rgba(0,0,0,0) 49%, rgba(255,255,255,.4) 50%, rgba(0,0,0,0) 51%),
+    linear-gradient(135deg, rgba(0,0,0,0) 49%, rgba(255,255,255,.4) 50%, rgba(0,0,0,0) 51%);
+  -webkit-animation: blink6 10s linear infinite;
+  animation: blink6 10s linear infinite;
+  transform: scale(0, 0) rotate(0deg);
+}
+#blink6:before {
+  top: -30%;
+  right: 0; left: auto;
+  -webkit-animation-delay: 5s;
+  animation-delay: 5s;
+}
